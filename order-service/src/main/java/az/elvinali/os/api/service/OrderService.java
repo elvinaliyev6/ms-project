@@ -10,19 +10,22 @@ import az.elvinali.os.api.entity.Order;
 import az.elvinali.os.api.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
+@RefreshScope
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final RestTemplate restTemplate;
 
-    @Value("${ms.payment.url}")
-    private String URL;
+    @Lazy
+    private final RestTemplate restTemplate;
+    @Value("${microservice.payment-service.endpoints.endpoint.uri}")
+    private String PAYMENT_ENDPOINT_URL;
 
     public RespTransaction saveOrder(ReqTransaction reqTransaction) {
         ReqOrder reqOrder = reqTransaction.getOrder();
@@ -33,7 +36,7 @@ public class OrderService {
         reqPayment.setOrderId(savedOrder.getId());
 
         RespOrder respOrder = convertFromModel(order);
-        RespPayment respPayment = restTemplate.postForObject(URL+"payment", reqPayment, RespPayment.class);
+        RespPayment respPayment = restTemplate.postForObject(PAYMENT_ENDPOINT_URL, reqPayment, RespPayment.class);
 
         String message = respPayment.getPaymentStatus()
                 .equals("success") ? "payment processing successful and order placed" : "there is failure in payment apu, order added to cart";

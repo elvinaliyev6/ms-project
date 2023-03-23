@@ -11,16 +11,8 @@ spring:
     password: 12345
   application:
     name: ORDER-SERVICE
+  cloud:
+    config:
+      uri:
+        - http://localhost:9796
 
-ms:
-  payment:
-    url: http://PAYMENT-SERVICE/
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    hostname: localhost
