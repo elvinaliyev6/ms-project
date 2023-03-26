@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class PaymentMapper {
 
-    public static Payment mapRequestTEntity(ReqPayment reqPayment){
+    public static Payment mapRequestToEntity(ReqPayment reqPayment){
         return Payment.builder()
                 .amount(reqPayment.getAmount())
                 .paymentStatus(paymentProcession())

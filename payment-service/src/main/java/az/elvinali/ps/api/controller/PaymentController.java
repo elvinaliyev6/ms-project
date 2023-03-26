@@ -6,6 +6,8 @@ import az.elvinali.ps.api.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/payment")
@@ -14,7 +16,7 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @PostMapping("")
-    public RespPayment doPayment(@RequestBody ReqPayment reqPayment){
+    public RespPayment doPayment(@RequestBody @Valid ReqPayment reqPayment){
         return paymentService.doPayment(reqPayment);
     }
 

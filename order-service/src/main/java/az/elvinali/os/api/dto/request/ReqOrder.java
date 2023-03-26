@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -16,10 +18,12 @@ public class ReqOrder {
     @NotBlank
     String name;
 
-    @NotBlank
+    @Min(value = 1)
+    @Max(value = 100)
     Integer quantity;
 
-    @NotBlank
+    @Min(value = 1)
+    @Max(value = 100)
     Double price;
 
 }

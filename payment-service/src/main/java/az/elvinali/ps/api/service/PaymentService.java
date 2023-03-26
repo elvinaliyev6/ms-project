@@ -8,9 +8,6 @@ import az.elvinali.ps.api.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
-import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 public class PaymentService {
@@ -18,7 +15,7 @@ public class PaymentService {
 
     public RespPayment doPayment(ReqPayment reqPayment) {
 
-        Payment payment=PaymentMapper.mapRequestTEntity(reqPayment);
+        Payment payment=PaymentMapper.mapRequestToEntity(reqPayment);
         paymentRepository.save(payment);
         RespPayment respPayment = PaymentMapper.mapEntityToResponse(payment);
         return respPayment;

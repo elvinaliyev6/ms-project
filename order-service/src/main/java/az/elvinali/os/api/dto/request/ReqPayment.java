@@ -10,8 +10,6 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReqPayment {
-    @NotBlank
     private Long orderId;
-    @NotBlank
     private Double amount;
 }

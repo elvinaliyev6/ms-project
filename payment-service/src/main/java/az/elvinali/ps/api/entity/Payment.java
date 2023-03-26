@@ -1,7 +1,9 @@
 package az.elvinali.ps.api.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Data
 @Table(name = "PAYMENT")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payment {
 
     @Id
