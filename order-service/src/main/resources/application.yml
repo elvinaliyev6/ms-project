@@ -15,4 +15,6 @@ spring:
     config:
       uri:
         - http://localhost:9796
-
+logging:
+  file:
+    name: C:/Users/Hp/Desktop/logs/microservices.log

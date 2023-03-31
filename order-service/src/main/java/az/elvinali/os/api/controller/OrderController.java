@@ -20,7 +20,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/bookOrder")
-    public RespTransaction saveOrder(@RequestBody @Valid ReqTransaction reqTransaction){
+    public RespTransaction saveOrder(@RequestBody @Valid ReqTransaction reqTransaction) throws Exception{
         return orderService.saveOrder(reqTransaction);
     }
 

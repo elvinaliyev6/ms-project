@@ -16,12 +16,12 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @PostMapping("")
-    public RespPayment doPayment(@RequestBody @Valid ReqPayment reqPayment){
+    public RespPayment doPayment(@RequestBody @Valid ReqPayment reqPayment) throws Exception{
         return paymentService.doPayment(reqPayment);
     }
 
     @GetMapping("/{orderId}")
-    public RespPayment getPaymentHistorybyOrderId(@PathVariable Long orderId){
+    public RespPayment getPaymentHistorybyOrderId(@PathVariable Long orderId) throws Exception{
         return paymentService.getPaymentHistorybyOrderId(orderId);
     }
 }

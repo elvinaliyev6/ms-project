@@ -11,3 +11,7 @@ spring:
     password: 12345
   application:
     name: PAYMENT-SERVICE
+
+logging:
+  file:
+    name: C:/Users/Hp/Desktop/logs/microservices.log
