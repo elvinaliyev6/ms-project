@@ -36,6 +36,11 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '3.1.1'
     implementation('org.springframework.cloud:spring-cloud-starter-bootstrap')
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zipkin
+    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin:2.2.8.RELEASE'
+
 }
 
 dependencyManagement {
